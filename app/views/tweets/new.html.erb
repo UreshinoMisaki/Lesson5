@@ -1,0 +1,9 @@
+<%= form_with model: @tweet , local: true do |f| %>
+    <%= f.label :message, 'メッセージ' %>
+    <%= f.text_field :message %>
+    <%= f.submit '登録' %>
+<% end %>
+
+<div id="form">
+        <%= render "form" %>
+</div>
