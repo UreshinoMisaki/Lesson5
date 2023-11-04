@@ -14,6 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_162851) do
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "tweet_id"
+    t.integer "login_uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -21,13 +22,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_162851) do
   create_table "profiles", force: :cascade do |t|
     t.string "message"
     t.integer "user_id"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tweets", force: :cascade do |t|
-    t.integer "user_id"
     t.string "message"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_162851) do
     t.string "uid"
     t.string "pass"
     t.integer "age"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,12 +1,15 @@
 <h1>ユーザー登録</h1>
-<%= form_tag users_path, method: :post, data: {turbo: false} do %>
-    <%= label_tag :uid, 'ユーザーID' %>
-    <%= text_field_tag :uid %>
+<%= form_for @user, url: {action: :create} do |f| %>
+    <%= f.label :uid, 'ユーザーID' %>
+    <%= f.text_field :uid %>
     
-    <%= label_tag :pass, 'パスワード' %>
-    <%= password_field_tag :pass %>
+    <%= f.label :password, 'パスワード' %>
+    <%= f.password_field :password %>
+    
+    <%= f.label :password_confirmation, 'パスワード' %>
+    <%= f.password_field :password_confirmation %>
 
-    <%= submit_tag '登録' %>
+    <%= f.submit '登録' %>
     
     
 <% end %>

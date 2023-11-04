@@ -11,13 +11,15 @@ class UsersController < ApplicationController
     end
     
     def create
-    signup_password = BCrypt::Password.create(params[:pass])
-    @user = User.new(uid: params[:uid], pass: signup_password)
-        if @user.save
-            redirect_to root_path
-        else
-            render 'new'
-        end
+    @user = User.new(
+        uid: params[:user][:uid], 
+        password: params[:user][:password], 
+        password_confirmation: params[:user][:password_confirmation])
+    if @user.save
+        redirect_to users_path
+    else
+        render 'new'
+    end
     end
     
     def destroy
